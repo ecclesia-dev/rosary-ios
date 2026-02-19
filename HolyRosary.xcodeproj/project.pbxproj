@@ -15,6 +15,7 @@
 		A10006 /* Mystery.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20006; };
 		A10007 /* RosaryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20007; };
 		A10008 /* RosaryTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20008; };
+		A1000B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000B; };
 		A10009 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20009; };
 		A1000A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2000A; };
 /* End PBXBuildFile section */
@@ -30,6 +31,7 @@
 		A20008 /* RosaryTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosaryTracker.swift; sourceTree = "<group>"; };
 		A20009 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2000A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A2000B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A30000 /* HolyRosary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HolyRosary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -56,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				A20001 /* HolyRosaryApp.swift */,
+				A2000B /* Theme.swift */,
 				A50002 /* Models */,
 				A50003 /* Views */,
 				A20009 /* Assets.xcassets */,
@@ -179,6 +182,7 @@
 				A10006 /* Mystery.swift in Sources */,
 				A10007 /* RosaryState.swift in Sources */,
 				A10008 /* RosaryTracker.swift in Sources */,
+				A1000B /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
