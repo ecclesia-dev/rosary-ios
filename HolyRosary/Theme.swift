@@ -16,3 +16,13 @@ struct RosaryTheme {
     // Muted text
     static let muted = Color(red: 0.65, green: 0.60, blue: 0.55)
 }
+
+// Convenience alias used by views
+typealias Theme = _Theme
+enum _Theme {
+    static let gold = RosaryTheme.gold
+    static let background = RosaryTheme.darkBg
+    static let cardBackground = RosaryTheme.cardBg
+    static let textPrimary = RosaryTheme.cream
+    static let textMuted = RosaryTheme.muted
+}
