@@ -43,7 +43,6 @@ struct RosaryView: View {
         .gesture(
             DragGesture(minimumDistance: 30)
                 .onEnded { value in
-                    // Swipe left to advance, right to go back
                     if value.translation.width < -30 {
                         advanceBead()
                     } else if value.translation.width > 30 {
@@ -66,7 +65,6 @@ struct RosaryView: View {
             RosaryTracker.record(mysterySet: state.mysterySet)
             UINotificationFeedbackGenerator().notificationOccurred(.success)
         } else if state.currentStep.decade != currentDecade && state.currentStep.decade != nil {
-            // New decade — stronger haptic
             UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
         } else {
             UIImpactFeedbackGenerator(style: .soft).impactOccurred()
@@ -76,10 +74,10 @@ struct RosaryView: View {
     // MARK: - Prayer View
 
     private var prayerView: some View {
-        VStack(spacing: 16) {
-            // Mystery info
+        VStack(spacing: 0) {
+            // Mystery info at top (compact)
             if let mystery = state.currentMystery {
-                VStack(spacing: 8) {
+                VStack(spacing: 4) {
                     Text("— Decade \(state.currentStep.decade ?? 0) —")
                         .font(.system(.caption, design: .serif))
                         .foregroundStyle(RosaryTheme.muted)
@@ -90,29 +88,13 @@ struct RosaryView: View {
                         .font(.system(.title3, design: .serif))
                         .fontWeight(.bold)
                         .foregroundStyle(RosaryTheme.gold)
-
-                    Text(mystery.meditation)
-                        .font(.system(.footnote, design: .serif))
-                        .foregroundStyle(RosaryTheme.cream.opacity(0.7))
-                        .multilineTextAlignment(.center)
-                        .lineSpacing(3)
-                        .padding(.horizontal, 28)
-
-                    Text(mystery.scripture)
-                        .font(.system(.caption2, design: .serif))
-                        .italic()
-                        .foregroundStyle(RosaryTheme.muted)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 32)
-                        .padding(.top, 2)
                 }
                 .padding(.top, 4)
+                .padding(.bottom, 8)
             }
 
-            Spacer()
-
-            // Prayer name
-            VStack(spacing: 6) {
+            // Prayer name + count
+            VStack(spacing: 4) {
                 Text(state.currentStep.type.rawValue)
                     .font(.system(.title2, design: .serif))
                     .fontWeight(.bold)
@@ -120,28 +102,28 @@ struct RosaryView: View {
 
                 if let hm = state.currentStep.hailMaryIndex {
                     Text("\(hm) of \(state.currentStep.decade != nil ? 10 : 3)")
-                        .font(.system(.caption, design: .serif))
-                        .foregroundStyle(RosaryTheme.muted)
+                        .font(.system(.headline, design: .serif))
+                        .foregroundStyle(RosaryTheme.gold)
                 }
             }
+            .padding(.bottom, 8)
 
-            // Prayer text
+            // Prayer text (scrollable, fills available space)
             ScrollView {
                 Text(state.prayerText)
                     .font(.system(.body, design: .serif))
                     .foregroundStyle(RosaryTheme.cream.opacity(0.85))
                     .multilineTextAlignment(.center)
                     .lineSpacing(5)
-                    .padding(.horizontal, 28)
+                    .padding(.horizontal, 24)
             }
-            .frame(maxHeight: 200)
+            .frame(maxHeight: .infinity)
 
-            Spacer()
-
-            // Bead progress
+            // Bead visualization — the centerpiece
             BeadProgressView(state: state)
+                .padding(.vertical, 12)
 
-            // Tap to advance
+            // Continue button
             Button(action: advanceBead) {
                 Text("Continue")
                     .font(.system(.headline, design: .serif))

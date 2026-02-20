@@ -3,80 +3,199 @@ import SwiftUI
 struct BeadProgressView: View {
     let state: RosaryState
 
+    // Layout constants
+    private let beadSize: CGFloat = 22
+    private let largeBeadSize: CGFloat = 30
+    private let currentBeadSize: CGFloat = 34
+    private let spacing: CGFloat = 6
+
     var body: some View {
-        VStack(spacing: 10) {
-            // Overall progress bar
-            GeometryReader { geo in
-                ZStack(alignment: .leading) {
-                    Capsule()
-                        .fill(RosaryTheme.cream.opacity(0.08))
-                    Capsule()
-                        .fill(
-                            LinearGradient(
-                                colors: [RosaryTheme.gold, RosaryTheme.gold.opacity(0.7)],
-                                startPoint: .leading,
-                                endPoint: .trailing
-                            )
-                        )
-                        .frame(width: geo.size.width * state.progress)
-                        .animation(.easeInOut(duration: 0.35), value: state.progress)
+        VStack(spacing: 14) {
+            // Counter
+            Text("\(state.currentIndex + 1) / \(state.totalBeads)")
+                .font(.system(.title3, design: .serif))
+                .fontWeight(.semibold)
+                .foregroundStyle(RosaryTheme.gold)
+
+            if let decade = state.currentStep.decade {
+                decadeRosary(decade: decade)
+            } else {
+                introRosary
+            }
+        }
+    }
+
+    // MARK: - Decade Rosary (Our Father + 10 Hail Marys + Glory Be)
+
+    private func decadeRosary(decade: Int) -> some View {
+        let decadeStart = 7 + (decade - 1) * 13
+
+        return VStack(spacing: 12) {
+            // Top row: beads 6-10
+            HStack(spacing: spacing) {
+                ForEach(6...10, id: \.self) { i in
+                    rosaryBead(
+                        filled: state.currentIndex >= decadeStart + i,
+                        isCurrent: state.currentIndex == decadeStart + i,
+                        isLarge: false
+                    )
                 }
             }
-            .frame(height: 5)
-            .padding(.horizontal, 32)
 
-            // Decade dots
-            if let decade = state.currentStep.decade {
-                decadeBeads(decade: decade)
-            } else {
-                introBeads
+            // Middle row: bead 5, spacer, Glory Be
+            HStack {
+                rosaryBead(
+                    filled: state.currentIndex >= decadeStart + 5,
+                    isCurrent: state.currentIndex == decadeStart + 5,
+                    isLarge: false
+                )
+                Spacer()
+                rosaryBead(
+                    filled: state.currentIndex >= decadeStart + 11,
+                    isCurrent: state.currentIndex == decadeStart + 11,
+                    isLarge: true
+                )
+            }
+            .padding(.horizontal, 16)
+
+            // Bottom rows: beads 4-1
+            HStack {
+                rosaryBead(
+                    filled: state.currentIndex >= decadeStart + 4,
+                    isCurrent: state.currentIndex == decadeStart + 4,
+                    isLarge: false
+                )
+                Spacer()
+            }
+            .padding(.horizontal, 16)
+
+            HStack {
+                rosaryBead(
+                    filled: state.currentIndex >= decadeStart + 3,
+                    isCurrent: state.currentIndex == decadeStart + 3,
+                    isLarge: false
+                )
+                Spacer()
+            }
+            .padding(.horizontal, 16)
+
+            HStack {
+                rosaryBead(
+                    filled: state.currentIndex >= decadeStart + 2,
+                    isCurrent: state.currentIndex == decadeStart + 2,
+                    isLarge: false
+                )
+                Spacer()
+            }
+            .padding(.horizontal, 16)
+
+            HStack {
+                rosaryBead(
+                    filled: state.currentIndex >= decadeStart + 1,
+                    isCurrent: state.currentIndex == decadeStart + 1,
+                    isLarge: false
+                )
+                Spacer()
+            }
+            .padding(.horizontal, 16)
+
+            // Our Father bead at bottom center
+            rosaryBead(
+                filled: state.currentIndex >= decadeStart,
+                isCurrent: state.currentIndex == decadeStart,
+                isLarge: true
+            )
+        }
+        .padding(.horizontal, 20)
+    }
+
+    // MARK: - Intro beads (crucifix area)
+
+    private var introRosary: some View {
+        VStack(spacing: spacing + 2) {
+            // Glory Be at top
+            rosaryBead(filled: state.currentIndex >= 6, isCurrent: state.currentIndex == 6, isLarge: true)
+
+            // 3 Hail Marys
+            ForEach([5, 4, 3], id: \.self) { i in
+                rosaryBead(filled: state.currentIndex >= i, isCurrent: state.currentIndex == i, isLarge: false)
             }
 
-            Text("\(state.currentIndex + 1) of \(state.totalBeads)")
-                .font(.system(.caption2, design: .serif))
-                .foregroundStyle(RosaryTheme.muted)
+            // Our Father
+            rosaryBead(filled: state.currentIndex >= 2, isCurrent: state.currentIndex == 2, isLarge: true)
+
+            // Creed
+            rosaryBead(filled: state.currentIndex >= 1, isCurrent: state.currentIndex == 1, isLarge: true)
+
+            // Cross
+            Image(systemName: "cross.fill")
+                .font(.system(size: 28))
+                .foregroundStyle(state.currentIndex >= 0 ? RosaryTheme.gold : RosaryTheme.cream.opacity(0.15))
+                .shadow(color: state.currentIndex >= 0 ? RosaryTheme.gold.opacity(0.4) : .clear, radius: 4)
         }
     }
 
-    // 10 dots for current decade
-    private func decadeBeads(decade: Int) -> some View {
-        HStack(spacing: 4) {
-            // Our Father bead (larger)
-            beadDot(filled: beadFilled(decade: decade, position: 0), large: true)
+    // MARK: - Single Bead
 
-            // 10 Hail Mary beads
-            ForEach(1...10, id: \.self) { i in
-                beadDot(filled: beadFilled(decade: decade, position: i), large: false)
+    private func rosaryBead(filled: Bool, isCurrent: Bool, isLarge: Bool) -> some View {
+        let size: CGFloat = isCurrent ? currentBeadSize : (isLarge ? largeBeadSize : beadSize)
+
+        return ZStack {
+            // Outer glow for current bead
+            if isCurrent {
+                Circle()
+                    .fill(RosaryTheme.gold.opacity(0.25))
+                    .frame(width: size + 12, height: size + 12)
+
+                Circle()
+                    .strokeBorder(RosaryTheme.gold.opacity(0.6), lineWidth: 2)
+                    .frame(width: size + 12, height: size + 12)
             }
 
-            // Glory Be bead (larger)
-            beadDot(filled: beadFilled(decade: decade, position: 11), large: true)
-        }
-    }
+            // Bead body with gradient for 3D effect
+            Circle()
+                .fill(
+                    filled
+                        ? RadialGradient(
+                            colors: [
+                                RosaryTheme.gold.opacity(1.0),
+                                RosaryTheme.gold.opacity(0.7),
+                                Color(red: 0.6, green: 0.45, blue: 0.15)
+                            ],
+                            center: .init(x: 0.35, y: 0.3),
+                            startRadius: 0,
+                            endRadius: size * 0.6
+                        )
+                        : RadialGradient(
+                            colors: [
+                                RosaryTheme.cream.opacity(0.18),
+                                RosaryTheme.cream.opacity(0.06)
+                            ],
+                            center: .init(x: 0.35, y: 0.3),
+                            startRadius: 0,
+                            endRadius: size * 0.6
+                        )
+                )
+                .frame(width: size, height: size)
+                .shadow(color: filled ? RosaryTheme.gold.opacity(0.35) : .clear, radius: 4, y: 2)
 
-    private func beadFilled(decade: Int, position: Int) -> Bool {
-        // Opening: SignOfCross + Creed + OF + 3HM + GB = 7 beads (indices 0-6)
-        // Each decade: OF + 10HM + GB + Fatima = 13 beads
-        let decadeStart = 7 + (decade - 1) * 13
-        let beadIndex = decadeStart + position
-        return state.currentIndex >= beadIndex
-    }
-
-    // Intro beads: Sign of Cross, Creed, OF, 3 HM, GB
-    private var introBeads: some View {
-        HStack(spacing: 5) {
-            ForEach(0..<7, id: \.self) { i in
-                let large = (i == 0 || i == 1 || i == 2 || i == 6)
-                beadDot(filled: state.currentIndex >= i, large: large)
+            // Highlight spot for 3D look
+            if filled {
+                Circle()
+                    .fill(
+                        RadialGradient(
+                            colors: [Color.white.opacity(0.5), Color.clear],
+                            center: .init(x: 0.3, y: 0.25),
+                            startRadius: 0,
+                            endRadius: size * 0.35
+                        )
+                    )
+                    .frame(width: size * 0.6, height: size * 0.6)
+                    .offset(x: -size * 0.12, y: -size * 0.15)
             }
         }
-    }
-
-    private func beadDot(filled: Bool, large: Bool) -> some View {
-        Circle()
-            .fill(filled ? RosaryTheme.gold : RosaryTheme.cream.opacity(0.12))
-            .frame(width: large ? 10 : 7, height: large ? 10 : 7)
-            .shadow(color: filled ? RosaryTheme.gold.opacity(0.3) : .clear, radius: 3)
-            .animation(.easeInOut(duration: 0.2), value: filled)
+        .frame(width: currentBeadSize + 12, height: currentBeadSize + 12)
+        .animation(.easeInOut(duration: 0.3), value: filled)
+        .animation(.easeInOut(duration: 0.3), value: isCurrent)
     }
 }
