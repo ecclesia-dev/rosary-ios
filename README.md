@@ -2,7 +2,7 @@
 
 **Pray the Rosary on your iPhone. Free. No account. No ads.**
 
-`4 Mystery Sets · Latin & English · 7 Novenas · Bead-by-Bead · Offline`
+`3 Mystery Sets · Latin & English · 7 Novenas · Bead-by-Bead · Offline`
 
 A native iOS app for praying the Holy Rosary — step by step through every bead, with full prayer texts in English and Latin. A free, open-source alternative to Hallow, built for traditional Catholics.
 
@@ -22,7 +22,7 @@ _Screenshots coming soon._
 
 ## Features
 
-- **All four mystery sets** — Joyful, Sorrowful, Glorious, and Luminous, with daily suggestions based on traditional day assignments
+- **All three mystery sets** — Joyful, Sorrowful, and Glorious, with daily suggestions based on traditional day assignments
 - **Bead-by-bead prayer** — swipe forward to advance, swipe back to go back; haptic feedback on every bead, stronger at decade transitions
 - **Latin toggle** — switch between English and Latin prayer texts at any point (EN/LA button in toolbar)
 - **Full prayer texts** — Sign of the Cross, Apostles' Creed, Our Father, Hail Mary, Glory Be, Fatima Prayer, Hail Holy Queen, and closing prayers
@@ -40,8 +40,7 @@ _Screenshots coming soon._
 |-----|------|-----------|
 | Joyful | Monday & Saturday | Annunciation, Visitation, Nativity, Presentation, Finding in Temple |
 | Sorrowful | Tuesday & Friday | Agony in Garden, Scourging, Crowning with Thorns, Carrying the Cross, Crucifixion |
-| Glorious | Wednesday & Sunday | Resurrection, Ascension, Descent of Holy Ghost, Assumption, Coronation of Mary |
-| Luminous | Thursday | Baptism in Jordan, Wedding at Cana, Proclamation of Kingdom, Transfiguration, Institution of Eucharist |
+| Glorious | Wednesday, Sunday & Thursday | Resurrection, Ascension, Descent of Holy Ghost, Assumption, Coronation of Mary |
 
 ## Novenas
 
