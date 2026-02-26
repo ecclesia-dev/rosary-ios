@@ -6,7 +6,6 @@ enum MysterySet: String, CaseIterable, Identifiable {
     case joyful = "Joyful"
     case sorrowful = "Sorrowful"
     case glorious = "Glorious"
-    case luminous = "Luminous"
 
     var id: String { rawValue }
 
@@ -15,7 +14,6 @@ enum MysterySet: String, CaseIterable, Identifiable {
         case .joyful: return Mystery.joyful
         case .sorrowful: return Mystery.sorrowful
         case .glorious: return Mystery.glorious
-        case .luminous: return Mystery.luminous
         }
     }
 
@@ -24,7 +22,6 @@ enum MysterySet: String, CaseIterable, Identifiable {
         case .joyful: return "sun.max.fill"
         case .sorrowful: return "cross.fill"
         case .glorious: return "crown.fill"
-        case .luminous: return "light.max"
         }
     }
 
@@ -32,13 +29,12 @@ enum MysterySet: String, CaseIterable, Identifiable {
         switch self {
         case .joyful: return "Monday & Saturday"
         case .sorrowful: return "Tuesday & Friday"
-        case .glorious: return "Wednesday & Sunday"
-        case .luminous: return "Thursday"
+        case .glorious: return "Wednesday, Thursday & Sunday"
         }
     }
 
     /// Traditional day assignments
-    /// Mon & Sat = Joyful, Tue & Fri = Sorrowful, Wed & Sun = Glorious, Thu = Luminous
+    /// Mon & Sat = Joyful, Tue & Fri = Sorrowful, Wed & Thu & Sun = Glorious
     static func suggestedToday() -> MysterySet {
         let weekday = Calendar.current.component(.weekday, from: Date())
         switch weekday {
@@ -46,7 +42,7 @@ enum MysterySet: String, CaseIterable, Identifiable {
         case 2: return .joyful    // Monday
         case 3: return .sorrowful // Tuesday
         case 4: return .glorious  // Wednesday
-        case 5: return .luminous  // Thursday
+        case 5: return .glorious  // Thursday
         case 6: return .sorrowful // Friday
         case 7: return .joyful    // Saturday
         default: return .joyful
@@ -156,33 +152,4 @@ struct Mystery: Identifiable {
         ),
     ]
 
-    // MARK: - Luminous Mysteries
-
-    static let luminous: [Mystery] = [
-        Mystery(
-            name: "The Baptism in the Jordan",
-            meditation: "Jesus is baptized by John in the River Jordan. The heavens open, the Spirit descends as a dove, and the Father's voice proclaims Him the Beloved Son.",
-            scripture: "And Jesus being baptized, forthwith came out of the water: and lo, the heavens were opened to him: and he saw the Spirit of God descending as a dove, and coming upon him. — Matthew 3:16"
-        ),
-        Mystery(
-            name: "The Wedding Feast at Cana",
-            meditation: "At the wedding feast in Cana, at the request of His Mother, Jesus performs His first public miracle, changing water into wine.",
-            scripture: "His mother saith to the waiters: Whatsoever he shall say to you, do ye. — John 2:5"
-        ),
-        Mystery(
-            name: "The Proclamation of the Kingdom",
-            meditation: "Jesus proclaims the coming of the Kingdom of God, calls all to conversion, and forgives the sins of those who draw near to Him in humble trust.",
-            scripture: "The time is accomplished, and the kingdom of God is at hand: repent, and believe the gospel. — Mark 1:15"
-        ),
-        Mystery(
-            name: "The Transfiguration",
-            meditation: "Jesus is transfigured upon Mount Tabor. His face shines as the sun, and His garments become white as snow, revealing His divine glory.",
-            scripture: "And his face did shine as the sun: and his garments became white as snow. — Matthew 17:2"
-        ),
-        Mystery(
-            name: "The Institution of the Eucharist",
-            meditation: "At the Last Supper, Jesus institutes the Most Holy Eucharist, giving His Body and Blood under the appearances of bread and wine.",
-            scripture: "And whilst they were at supper, Jesus took bread, and blessed, and broke: and gave to his disciples, and said: Take ye, and eat. This is my body. — Matthew 26:26"
-        ),
-    ]
 }
