@@ -16,6 +16,10 @@
 		A10007 /* RosaryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20007; };
 		A10008 /* RosaryTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20008; };
 		A1000B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000B; };
+		A1000C /* NovenaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000C; };
+		A1000D /* Novena.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000D; };
+		A1000E /* NovenaLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000E; };
+		A1000F /* NovenaTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000F; };
 		A10009 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20009; };
 		A1000A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2000A; };
 /* End PBXBuildFile section */
@@ -32,6 +36,10 @@
 		A20009 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2000A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A2000B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		A2000C /* NovenaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovenaListView.swift; sourceTree = "<group>"; };
+		A2000D /* Novena.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Novena.swift; sourceTree = "<group>"; };
+		A2000E /* NovenaLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovenaLibrary.swift; sourceTree = "<group>"; };
+		A2000F /* NovenaTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovenaTracker.swift; sourceTree = "<group>"; };
 		A30000 /* HolyRosary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HolyRosary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -74,6 +82,9 @@
 				A20006 /* Mystery.swift */,
 				A20007 /* RosaryState.swift */,
 				A20008 /* RosaryTracker.swift */,
+				A2000D /* Novena.swift */,
+				A2000E /* NovenaLibrary.swift */,
+				A2000F /* NovenaTracker.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -84,6 +95,7 @@
 				A20002 /* HomeView.swift */,
 				A20003 /* RosaryView.swift */,
 				A20004 /* BeadProgressView.swift */,
+				A2000C /* NovenaListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -183,6 +195,10 @@
 				A10007 /* RosaryState.swift in Sources */,
 				A10008 /* RosaryTracker.swift in Sources */,
 				A1000B /* Theme.swift in Sources */,
+				A1000C /* NovenaListView.swift in Sources */,
+				A1000D /* Novena.swift in Sources */,
+				A1000E /* NovenaLibrary.swift in Sources */,
+				A1000F /* NovenaTracker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
