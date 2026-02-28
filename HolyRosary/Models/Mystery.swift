@@ -27,14 +27,14 @@ enum MysterySet: String, CaseIterable, Identifiable {
 
     var subtitle: String {
         switch self {
-        case .joyful: return "Monday & Saturday"
+        case .joyful: return "Monday & Thursday"
         case .sorrowful: return "Tuesday & Friday"
-        case .glorious: return "Wednesday, Thursday & Sunday"
+        case .glorious: return "Wednesday, Saturday & Sunday"
         }
     }
 
-    /// Traditional day assignments
-    /// Mon & Sat = Joyful, Tue & Fri = Sorrowful, Wed & Thu & Sun = Glorious
+    /// Traditional pre-2002 day assignments (per immemorial custom, prior to Rosarium Virginis Mariae)
+    /// Mon & Thu = Joyful, Tue & Fri = Sorrowful, Wed & Sat & Sun = Glorious
     static func suggestedToday() -> MysterySet {
         let weekday = Calendar.current.component(.weekday, from: Date())
         switch weekday {
@@ -42,9 +42,9 @@ enum MysterySet: String, CaseIterable, Identifiable {
         case 2: return .joyful    // Monday
         case 3: return .sorrowful // Tuesday
         case 4: return .glorious  // Wednesday
-        case 5: return .glorious  // Thursday
+        case 5: return .joyful    // Thursday
         case 6: return .sorrowful // Friday
-        case 7: return .joyful    // Saturday
+        case 7: return .glorious  // Saturday
         default: return .joyful
         }
     }
