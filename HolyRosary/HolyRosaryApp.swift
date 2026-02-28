@@ -7,13 +7,11 @@ struct HolyRosaryApp: App {
             TabView {
                 HomeView()
                     .tabItem {
-                        Image(systemName: "cross.fill")
-                        Text("Rosary")
+                        Label("Rosary", systemImage: "cross.fill")
                     }
                 NovenaListView()
                     .tabItem {
-                        Image(systemName: "flame.fill")
-                        Text("Novenas")
+                        Label("Novenas", systemImage: "flame.fill")
                     }
             }
             .tint(RosaryTheme.gold)

@@ -14,6 +14,7 @@ struct HomeView: View {
                         .font(.system(size: 52, weight: .thin))
                         .foregroundStyle(RosaryTheme.gold)
                         .shadow(color: RosaryTheme.gold.opacity(0.4), radius: 12)
+                        .accessibilityHidden(true)
 
                     // Title
                     VStack(spacing: 6) {
@@ -94,6 +95,7 @@ struct HomeView: View {
             Image(systemName: "chevron.right")
                 .font(.caption)
                 .foregroundStyle(RosaryTheme.muted)
+                .accessibilityHidden(true)
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 14)

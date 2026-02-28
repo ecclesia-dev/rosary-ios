@@ -3,6 +3,7 @@ import SwiftUI
 struct RosaryView: View {
     @State private var state: RosaryState
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     init(mysterySet: MysterySet) {
         _state = State(initialValue: RosaryState(mysterySet: mysterySet))
@@ -57,8 +58,12 @@ struct RosaryView: View {
 
     private func advanceBead() {
         let currentDecade = state.currentStep.decade
-        withAnimation(.easeInOut(duration: 0.25)) {
+        if reduceMotion {
             state.advance()
+        } else {
+            withAnimation(.easeInOut(duration: 0.25)) {
+                state.advance()
+            }
         }
 
         if state.isComplete {
@@ -133,6 +138,7 @@ struct RosaryView: View {
                     .background(RosaryTheme.gold, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
                     .shadow(color: RosaryTheme.gold.opacity(0.3), radius: 8, y: 4)
             }
+            .accessibilityHint("Advance to next prayer. You can also swipe left to advance or right to go back.")
             .padding(.horizontal, 32)
             .padding(.bottom, 16)
         }
@@ -149,6 +155,7 @@ struct RosaryView: View {
                 .font(.system(size: 72))
                 .foregroundStyle(RosaryTheme.gold)
                 .shadow(color: RosaryTheme.gold.opacity(0.4), radius: 16)
+                .accessibilityHidden(true)
 
             Text("Rosary Complete")
                 .font(.system(.title, design: .serif))
@@ -162,6 +169,7 @@ struct RosaryView: View {
             Text("✙")
                 .font(.title)
                 .foregroundStyle(RosaryTheme.gold.opacity(0.5))
+                .accessibilityHidden(true)
 
             Spacer()
 

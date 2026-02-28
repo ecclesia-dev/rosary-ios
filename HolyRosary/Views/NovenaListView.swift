@@ -127,6 +127,7 @@ struct ActiveNovenaCard: View {
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundColor(.green)
                         .font(.title2)
+                        .accessibilityLabel("Today's prayer completed")
                 }
             }
 
@@ -142,6 +143,7 @@ struct ActiveNovenaCard: View {
                 }
             }
             .frame(height: 6)
+            .accessibilityLabel("Progress: \(active.completedDays.count) of \(novena.totalDays) days")
 
             if !active.intention.isEmpty {
                 Text("Intention: \(active.intention)")
@@ -181,6 +183,7 @@ struct CompletedNovenaCard: View {
             Spacer()
             Image(systemName: "checkmark.seal.fill")
                 .foregroundColor(.green)
+                .accessibilityLabel("Completed")
         }
         .padding()
         .background(Theme.cardBackground)
@@ -217,6 +220,7 @@ struct NovenaCard: View {
                 Spacer()
                 Image(systemName: "chevron.right")
                     .foregroundColor(Theme.textMuted)
+                    .accessibilityHidden(true)
             }
             .padding()
             .background(Theme.cardBackground)
@@ -240,6 +244,7 @@ struct StartNovenaSheet: View {
                 Image(systemName: novena.icon)
                     .font(.system(size: 50))
                     .foregroundColor(Theme.gold)
+                    .accessibilityHidden(true)
 
                 Text(novena.name)
                     .font(.title2.bold())

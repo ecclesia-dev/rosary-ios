@@ -2,6 +2,7 @@ import SwiftUI
 
 struct BeadProgressView: View {
     let state: RosaryState
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     // Layout constants
     private let beadSize: CGFloat = 22
@@ -19,10 +20,14 @@ struct BeadProgressView: View {
 
             if let decade = state.currentStep.decade {
                 decadeRosary(decade: decade)
+                    .accessibilityHidden(true)
             } else {
                 introRosary
+                    .accessibilityHidden(true)
             }
         }
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("Prayer \(state.currentIndex + 1) of \(state.totalBeads)")
     }
 
     // MARK: - Decade Rosary (Our Father + 10 Hail Marys + Glory Be)
@@ -195,7 +200,7 @@ struct BeadProgressView: View {
             }
         }
         .frame(width: currentBeadSize + 12, height: currentBeadSize + 12)
-        .animation(.easeInOut(duration: 0.3), value: filled)
-        .animation(.easeInOut(duration: 0.3), value: isCurrent)
+        .animation(reduceMotion ? nil : .easeInOut(duration: 0.3), value: filled)
+        .animation(reduceMotion ? nil : .easeInOut(duration: 0.3), value: isCurrent)
     }
 }
