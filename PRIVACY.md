@@ -3,7 +3,7 @@
 **Effective Date:** 2026-02-27
 **App Name:** Holy Rosary
 **Developer:** Ecclesia Dev
-**Contact:** privacy@ecclesia.dev
+**Contact:** privacy@ecclesiadev.com
 
 ---
 
@@ -46,4 +46,4 @@ If this policy is updated, the revised version will be posted here with a new ef
 
 ## Contact
 
-For questions about this privacy policy, contact: privacy@ecclesia.dev
+For questions about this privacy policy, contact: privacy@ecclesiadev.com
