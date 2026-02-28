@@ -22,6 +22,7 @@
 		A1000F /* NovenaTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000F; };
 		A10009 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20009; };
 		A1000A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2000A; };
+		A10010 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A20010; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		A2000D /* Novena.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Novena.swift; sourceTree = "<group>"; };
 		A2000E /* NovenaLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovenaLibrary.swift; sourceTree = "<group>"; };
 		A2000F /* NovenaTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovenaTracker.swift; sourceTree = "<group>"; };
+		A20010 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A30000 /* HolyRosary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HolyRosary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -70,6 +72,7 @@
 				A50002 /* Models */,
 				A50003 /* Views */,
 				A20009 /* Assets.xcassets */,
+				A20010 /* LaunchScreen.storyboard */,
 				A50005 /* Preview Content */,
 			);
 			path = HolyRosary;
@@ -176,6 +179,7 @@
 			files = (
 				A1000A /* Preview Assets.xcassets in Resources */,
 				A10009 /* Assets.xcassets in Resources */,
+				A10010 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +273,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Holy Rosary";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -297,7 +301,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Holy Rosary";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait";
 				LD_RUNPATH_SEARCH_PATHS = (
