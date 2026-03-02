@@ -38,9 +38,9 @@ _Screenshots coming soon._
 
 | Set | Days | Mysteries |
 |-----|------|-----------|
-| Joyful | Monday & Saturday | Annunciation, Visitation, Nativity, Presentation, Finding in Temple |
+| Joyful | Monday & Thursday | Annunciation, Visitation, Nativity, Presentation, Finding in Temple |
 | Sorrowful | Tuesday & Friday | Agony in Garden, Scourging, Crowning with Thorns, Carrying the Cross, Crucifixion |
-| Glorious | Wednesday, Sunday & Thursday | Resurrection, Ascension, Descent of Holy Ghost, Assumption, Coronation of Mary |
+| Glorious | Wednesday, Saturday & Sunday | Resurrection, Ascension, Descent of Holy Ghost, Assumption, Coronation of Mary |
 
 ## Novenas
 
@@ -93,3 +93,19 @@ Build and run on simulator or device. No external dependencies, no package manag
 MIT — see [LICENSE](LICENSE).
 
 *Ad Maiorem Dei Gloriam.*
+
+---
+
+## Credits
+
+Built by the ecclesia-dev agent team:
+
+- **Polycarp** — project lead & orchestration
+- **Luke** — iOS development
+- **Augustine** — engineering direction
+- **Bellarmine** — theology review
+- **Margaret** — accessibility
+- **Alphonsus** — legal & privacy
+- **Cyprian** — QA
+- **Giotto** — design & assets
+- **Chrysostom** — documentation
