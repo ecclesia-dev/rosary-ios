@@ -38,9 +38,9 @@ _Screenshots coming soon._
 
 | Set | Days | Mysteries |
 |-----|------|-----------|
-| Joyful | Monday & Saturday | Annunciation, Visitation, Nativity, Presentation, Finding in Temple |
+| Joyful | Monday & Thursday | Annunciation, Visitation, Nativity, Presentation, Finding in Temple |
 | Sorrowful | Tuesday & Friday | Agony in Garden, Scourging, Crowning with Thorns, Carrying the Cross, Crucifixion |
-| Glorious | Wednesday, Sunday & Thursday | Resurrection, Ascension, Descent of Holy Ghost, Assumption, Coronation of Mary |
+| Glorious | Wednesday, Saturday & Sunday | Resurrection, Ascension, Descent of Holy Ghost, Assumption, Coronation of Mary |
 
 ## Novenas
 
