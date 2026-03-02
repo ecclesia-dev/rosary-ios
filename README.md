@@ -93,3 +93,19 @@ Build and run on simulator or device. No external dependencies, no package manag
 MIT — see [LICENSE](LICENSE).
 
 *Ad Maiorem Dei Gloriam.*
+
+---
+
+## Credits
+
+Built by the ecclesia-dev agent team:
+
+- **Polycarp** — project lead & orchestration
+- **Luke** — iOS development
+- **Augustine** — engineering direction
+- **Bellarmine** — theology review
+- **Margaret** — accessibility
+- **Alphonsus** — legal & privacy
+- **Cyprian** — QA
+- **Giotto** — design & assets
+- **Chrysostom** — documentation
