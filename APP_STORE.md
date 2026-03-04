@@ -101,7 +101,7 @@ https://ecclesiadev.com
 ## 7. Privacy Policy URL
 
 ```
-https://ecclesiadev.com/privacy
+https://ecclesiadev.com/privacy.html
 ```
 
 > **FLAG:** This page does not exist yet. Must be live before App Store submission. Content can mirror PRIVACY.md in this repo.
